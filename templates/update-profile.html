@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Profili Güncelle{% endblock %}
+{% block content %}
+{% if current_user.is_authenticated %}
+<div class="container">
+    <form method="POST" action="/update-profile">
+        New Name: <input type="text" name="name" required><br>
+        New Surname: <input type="text" name="surname" required><br>
+        Password : <input type="password" name="pass" required><br>
+        <input type="submit" value="Update"><br>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

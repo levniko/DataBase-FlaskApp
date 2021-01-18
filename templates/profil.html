@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Profil{% endblock %}
+{% block content %}
+{% if current_user.is_authenticated %}
+<div class="container">
+    <table class="table" style="width:100%">
+        <thead>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>E-mail</th>
+        </thead>
+        <tr>
+            <td>{{ username }}</td>
+            <td>{{ name }}</td>
+            <td>{{ surname }}</td>
+            <td>{{ email }}</td>
+        </tr>
+
+    </table>
+</div>
+
+<div class="container" style="padding-top: 20px;">
+    <a href="/update-profile" class="button">Update Your Profile</a>
+    <a href="/password" class="button">Change Your Password</a>
+</div>
+{% endif %}
+
+{% endblock %}

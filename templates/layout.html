@@ -21,18 +21,22 @@
             <div class="navbar-menu" id="nav-links">
         
                 <div class="navbar-end">
-                    <a class="navbar-item" href="{{ url_for('home_page') }}">Home</a>
-                    <a class="navbar-item" href="{{ url_for('search_page') }}">Search With Materials</a>
-                    <a class="navbar-item" href="{{ url_for('add_page') }}">Add Recipe</a>                    
-                    <a class="navbar-item" href="{{ url_for('login_page') }}">Login</a>
-                    <a class="navbar-item" href="{{ url_for('register_page') }}">Register</a>
-                    <a class="navbar-item" href="{{ url_for('account_page') }}">My Account</a>
+                    <a class="navbar-item" href="{{ url_for('home_page') }}">Ana Sayfa</a>
+                    <a class="navbar-item" href="{{ url_for('search_page') }}">Malzemelerle Ara</a>
+
+                    {% if current_user.is_authenticated %}
+                    <a class="navbar-item" href="{{ url_for('add_page') }}">Tarif Ekle</a>         
+                    <a class="navbar-item" href="{{ url_for('profil_page') }}">Profil</a>
+                    <a class="navbar-item" href="{{ url_for('logout_page') }}">Çıkış Yap</a>
+                    {% else %}
+                    <a class="navbar-item" href="{{ url_for('login_page') }}">Giriş</a>                    
+                    <a class="navbar-item" href="{{ url_for('register_page') }}">Kaydol</a>
+                    {% endif %}
                 </div>
 
             </div>
         </nav>
     </header>
-
     <main>
         <section class="section">
             <div class="content">
