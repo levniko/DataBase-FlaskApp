@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<form role="form" action="" method="GET">
+    <h2>Log In</h2>
+<div class="field">
+    <p class="control has-icons-left has-icons-right">
+      <input class="input is-success" name="username" type="text" placeholder="Usarname"required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field">
+    <label class="label">Password</label>
+    <p class="control has-icons-left">
+      <input class="input" name="password" type="password" placeholder="Password"required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
+    <p class="control">
+      <button class="button is-success">
+        Login
+      </button>
+    </p>
+  </div>
+</form>
+{% endblock %}

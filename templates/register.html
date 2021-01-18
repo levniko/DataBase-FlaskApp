@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+ {% block title %}Register{% endblock %}
+
+ {% block content %}
+ <form role="form" action="" method="POST">
+ <h2>Welcome to Register Page</h2>
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input" name="name" type="text" placeholder="Enter Name"  required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Surname</label>
+    <div class="control">
+      <input class="input" name="surname" type="text" placeholder="Enter Surname" required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Username</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input is-success" name="username" type="text" placeholder="Usarname"required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </div>
+    <p class="help is-success">This username is available</p>
+  </div>
+  
+  <div class="field">
+    <label class="label">Password</label>
+    <p class="control has-icons-left">
+      <input class="input" name="password" type="password" placeholder="Password"required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input" name="email" type="email" placeholder="Email"required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-exclamation-triangle"></i>
+      </span>
+    </div>
+  </div>
+    
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-light">Cancel</button>
+    </div>
+  </div>
+</form>
+ {% endblock %}

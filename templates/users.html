@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+ 
+ {% block title %}Users{% endblock %}
+ 
+ {% block content %}
+        <body>
+        <div class="jumbotron">
+            <h2>Users</h2>
+            {{error}}
+ 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>User Name</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+ 
+ 
+                    <tr class="success">
+                        <td>{{name}}</td>
+                        <td>{{surname}}</td>
+                        <td>{{username}}</td>
+                        <td>{{password}}</td>
+                    </tr>
+ 
+                </tbody>
+            </table>
+ 
+        </div>
+ 
+        </body>
+ {% endblock %}
