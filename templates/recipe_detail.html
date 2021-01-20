@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block title %}{{ recipe.name }} Tarifi {% endblock %}
+{% block content %}
+{% if current_user.is_authenticated %}
+<form method="POST" action="">   
+<table class="table" style="width:100%">
+        <thead>
+            <th>Tarif Adı</th>
+            <th>İçindekiler</th>
+            <th>Yapılışı</th>
+        </thead>
+
+    <tbody>
+
+        <tr>
+            <td>{{ recipe.name }}</td>
+            <td>{{ recipe.ingredients }}</td>
+            <td>{{ recipe.instructions }}</td>
+        </tr>
+
+    </tbody>
+    <thead>
+        <th>Yorumlar</th>
+    </thead>
+    <tbody>
+        {% for comment in comments   %}
+        <tr>
+            <td>{{ comment[2] }}</td>
+            <td>{{ comment[3] }}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>  
+    </table>
+    <div class="form-group">
+        <label for="comment">Yorum Ekleyin</label>
+        <textarea class="form-control" name ="user_comment" id="comment" rows="3"></textarea>
+      </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Puanla</label>
+            </div>
+            <select name="user_rate" id="user_rate" required>
+              {% for rate in puan %}
+              <option value="{{rate}}" >{{rate}} </option>
+              {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Gönder"><br>
+
+</form>
+{% endif %}
+
+{% endblock %}

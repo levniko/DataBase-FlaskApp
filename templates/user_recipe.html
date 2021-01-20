@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+<h1>Kendi Tarifinizi Ekleyin</h1>
+<form action="/userRecipe" method="post" novalidate>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Options</label>
+        </div>
+        <select name="recipes" id="recipes" required>
+          <option value="">Kategori Seçin</option>
+          {% for category in categories %}
+          <option value="{{category}}" >{{category}} </option>
+          {% endfor %}
+        </select>
+    </div>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}
+    </p>
+    <p>
+        {{ form.ingredients.label }}<br>
+        {{ form.ingredients(size=32) }}
+    </p>
+    <p>
+        {{ form.instructions.label }}<br>
+        {{ form.instructions(size=32) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+</body>
+{% endblock %}

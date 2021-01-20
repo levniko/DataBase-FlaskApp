@@ -18,42 +18,31 @@ INIT_STATEMENTS = [
                                  ID SERIAL PRIMARY KEY,
                                  USER_ID INTEGER REFERENCES USERS(ID) ON DELETE CASCADE, 
                                  NAME VARCHAR(80) NOT NULL,
-                                 PHOTO VARCHAR(80),
+                                 INGREDIENTS VARCHAR(255) NOT NULL,
                                  CONTENT VARCHAR(255) NOT NULL
         )
         """,
         """
         CREATE TABLE IF NOT EXISTS COMMENTS(
-                                 ID SERIAL PRIMARY KEY,
+                                 COMMENT_ID SERIAL PRIMARY KEY,
                                  USER_ID INTEGER REFERENCES USERS(ID) ON DELETE CASCADE,
                                  RECIPE_ID INTEGER REFERENCES RECIPES(ID) ON DELETE CASCADE,
                                  COMMENT VARCHAR(255) NOT NULL,
                                  RATE INT DEFAULT 0 NOT NULL                                
         )
-        """,
-        """
-        CREATE TABLE IF NOT EXISTS MEMBER(
-                                 USER_ID INTEGER REFERENCES USERS(ID) ON DELETE CASCADE
-        )
-        """,
-        # """
-        # CREATE TABLE IF NOT EXISTS RECIPE_MATERIALS(
-        #                          INGREDIENTS_ID INTEGER REFERENCES INGREDIENTS(ID) ,
-        #                          RECIPE_ID INTEGER REFERENCES RECIPES(ID) ON DELETE CASCADE
-        # )
-        # """,                     
-        """CREATE TABLE IF NOT EXISTS INGREDIENTS(
-                                 ID SERIAL PRIMARY KEY,
-                                 NAME VARCHAR(80) NOT NULL
-        )
-        """,                   
+        """,                              
         """
         CREATE TABLE IF NOT EXISTS CATEGORY(
                                  ID SERIAL PRIMARY KEY,
                                  NAME VARCHAR(80)
         )
+        """,
+        """        
+        CREATE TABLE IF NOT EXISTS RECIPE_CATEGORY(
+                                 RECIPE_ID INTEGER REFERENCES RECIPES(ID) ON DELETE CASCADE,
+                                 CATEGORY_ID INTEGER REFERENCES CATEGORY(ID) ON DELETE CASCADE
+        )
         """                          
-
 ]
 
 

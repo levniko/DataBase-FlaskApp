@@ -25,7 +25,7 @@
                     <a class="navbar-item" href="{{ url_for('search_page') }}">Malzemelerle Ara</a>
 
                     {% if current_user.is_authenticated %}
-                    <a class="navbar-item" href="{{ url_for('add_page') }}">Tarif Ekle</a>         
+                    <a class="navbar-item" href="{{ url_for('add_user_recipe') }}">Tarif Ekle</a>         
                     <a class="navbar-item" href="{{ url_for('profil_page') }}">Profil</a>
                     <a class="navbar-item" href="{{ url_for('logout_page') }}">Çıkış Yap</a>
                     {% else %}

@@ -5,10 +5,10 @@
 <div class="container">
     <table class="table" style="width:100%">
         <thead>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>E-mail</th>
+            <th>Kullanıcı Adı</th>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>E-Posta</th>
         </thead>
         <tr>
             <td>{{ username }}</td>
@@ -19,6 +19,23 @@
 
     </table>
 </div>
+
+    <table class="table" style="width:100%">
+        <thead>
+            <th>Tarif Adı</th>
+            <th>İçindekiler</th>
+            <th>Yapılışı</th>
+        </thead>
+    <tbody>
+        {% for recipe in result   %}
+        <tr>
+            <td><a href="{{ url_for('recipe_detail_page',id = recipe.id)}}">{{ recipe.name }}</a></td>
+            <td>{{ recipe.ingredients }}</td>
+            <td>{{ recipe.instructions }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
 
 <div class="container" style="padding-top: 20px;">
     <a href="/update-profile" class="button">Update Your Profile</a>

@@ -24,16 +24,6 @@ class User(UserMixin):
     def is_active(self):
         return True
 
-def get_user(username):
-    
-    with dbapi2.connect(database="recipe2", user = "postgres", password = "1573596248", host = "127.0.0.1", port = "5432") as connection:
-            cursor = connection.cursor()
-            statement = """SELECT NAME, SURNAME, USERNAME, PASSWORD, EMAIL FROM USERS WHERE USERNAME = '%s'"""
-            cursor.execute(statement, (username,))
-            for row in cursor:
-                (name,surname,username,email,password) = row
-                return User(name, surname, username, email, password)
-
 def get_user_id(username):
     query = """ 
         SELECT * FROM users WHERE username = '%s'
