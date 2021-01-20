@@ -87,7 +87,6 @@ def recipe_detail_page(id):
     comments = get_comment_for_recipe(id)
     recipe1 = get_recipe_id(id)
     puan = [1,2,3,4,5]
-    print(comments[0][2])
     if request.method=='GET':
         return render_template("recipe_detail.html",recipe=recipe1,comments=comments,recipe_id=id,puan=puan)
 
@@ -191,7 +190,7 @@ def add_user_recipe():
                         return render_template('user_recipe.html', title='Kendi Tarifinizi Ekleyin', form=form,categories = categories)
             recipe = Recipe(name=name, ingredients=ingredients, instructions=instructions, add_by=current_user)
             insert_recipe(recipe,category)
-        return redirect('/')
+        return redirect('/myaccount')
     else:
         categories = ['Kahvaltı','Soğuk','Sıcak','Tatlı']
         return render_template('user_recipe.html', title='Kendi Tarifinizi Ekleyin', form=form,categories = categories)

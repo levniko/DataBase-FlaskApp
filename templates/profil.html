@@ -4,6 +4,7 @@
 {% if current_user.is_authenticated %}
 <div class="container">
     <table class="table" style="width:100%">
+        <h1>Kullanıcı Bilgileri</h1>
         <thead>
             <th>Kullanıcı Adı</th>
             <th>İsim</th>
@@ -15,14 +16,19 @@
             <td>{{ name }}</td>
             <td>{{ surname }}</td>
             <td>{{ email }}</td>
+            <td><a href="/update-profile" class="button">Update Your Profile</a></td>
+            <td><a href="/password" class="button">Change Your Password</a></td>
         </tr>
-
     </table>
 </div>
+<!-- <div class="container" style="padding-top: 20px;">
 
-    <table class="table" style="width:100%">
+</div> -->
+<div class="container">
+<table class="table" style="width:100%">
+    <h2>Eklenen Tarifler</h2>
         <thead>
-            <th>Tarif Adı</th>
+            <th>Tarifin Adı</th>
             <th>İçindekiler</th>
             <th>Yapılışı</th>
         </thead>
@@ -36,11 +42,8 @@
         {% endfor %}
     </tbody>
     </table>
-
-<div class="container" style="padding-top: 20px;">
-    <a href="/update-profile" class="button">Update Your Profile</a>
-    <a href="/password" class="button">Change Your Password</a>
 </div>
+
 {% endif %}
 
 {% endblock %}
