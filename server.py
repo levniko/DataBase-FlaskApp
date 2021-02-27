@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for,request,redirect,flash,abort
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from user import User,get_user_id	
-from database_app import store
 import psycopg2 as dbapi2
 from psycopg2 import extensions
 import hashlib 
@@ -32,7 +31,7 @@ def load_user(user_id):
 extensions.register_type(extensions.UNICODE)
 extensions.register_type(extensions.UNICODEARRAY)
 
-HEROKU = True
+HEROKU = False
 
 if (not HEROKU):
     os.environ['DATABASE_URL'] = "dbname='recipe2' user = 'postgres' host = 'localhost' password = '1573596248'"
